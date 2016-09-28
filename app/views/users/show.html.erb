@@ -1,8 +1,18 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-        <h1><%= gravatar_for @user %><%= @user.name %></h1>
+      <h1><%= gravatar_for @user %><%= @user.name %></h1>
     </section>
+    <div class="row" style="width: 100%">
+      <div class="col-sm-6">
+        <%= link_to 'Following', followings_path(@user.id) %>
+        <%= @user.following_users.count %>
+      </div>
+      <div class="col-sm-6">
+        <%= link_to 'Follower', followers_path(@user.id) %>
+        <%= @user.follower_users.count %>
+      </div>
+    </div>
   </aside>
   <div class="col-md-8">
       <%= render 'follow_form' if logged_in? %>

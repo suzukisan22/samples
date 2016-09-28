@@ -1,10 +1,19 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :followings, :followers]
   
   def show
     @samples = @user.samples
   end
   
+  def followings
+    @users = @user.following_users
+    render 'relationships'
+  end
+  
+  def followers
+    @users = @user.follower_users
+    render 'relationships'
+  end
   
   def new
     @user = User.new
