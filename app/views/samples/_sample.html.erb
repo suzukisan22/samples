@@ -1,5 +1,9 @@
 <li id="micropost-<%= sample.id %>">
-    <%= link_to gravatar_for(sample.user, size: 50), sample.user %>
+    <% if @user.image %>
+      <%= image_tag "/user_images/#{@user.image}", class: 'feed_image' %>
+    <% else %>
+      <%= image_tag "aa.jpg", class: 'feed_image' %>
+    <% end %>
     <span class="user"><%= link_to sample.user.name, sample.user %></span>
     <span class="content"><%= sample.content %></span>
     <span class="timestamp"> Posted <%= time_ago_in_words(sample.created_at) %> ago. 

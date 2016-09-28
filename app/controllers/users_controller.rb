@@ -21,6 +21,8 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
+    file = params[:user][:image]
+    @user.set_image(file)
     if @user.save
       flash[:success] = "welcome to the Sample App!"
       redirect_to @user
@@ -33,6 +35,8 @@ class UsersController < ApplicationController
   end
   
   def update
+    file = params[:user][:image]
+    @user.set_image(file)
     @user.update(user_params)
     redirect_to current_user
   end

@@ -17,6 +17,9 @@
             
              <%= f.label :password_confirmation, "Confirmation" %>
              <%= f.password_field :password_confirmation, class: 'form-control' %>
+             
+             <%= "プロフィール画像" %>
+             <%= f.file_field :image, class: 'form-control' %>
             
             <%= f.submit "Update my account", class: "btn tn-large btn-primary" %>
         <% end %>
