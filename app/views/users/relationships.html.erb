@@ -1,6 +1,6 @@
 <% @users.each do |user| %>
   <div class="user_area">
     <h1><%= gravatar_for user %></h1>
-    <p><%= user.name %></p>
+    <p><%= link_to user.name, user_path(user.id) %></p>
   </div>
 <% end %>

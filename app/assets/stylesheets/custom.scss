@@ -56,7 +56,12 @@ input {
 aside { 
     section.user_info { 
         margin-top: 20px;
-    } 
+        max-width: 300px;
+    }
+    section .profile_image {
+        max-width: 300px;
+        width: 100%;
+    }
     section { 
         padding: 10px 0; 
         margin-top: 20px; 
