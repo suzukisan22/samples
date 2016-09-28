@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928044226) do
+ActiveRecord::Schema.define(version: 20160928082937) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160928044226) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
