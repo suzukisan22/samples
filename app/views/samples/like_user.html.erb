@@ -1,0 +1,10 @@
+<h1>いいねしたユーザー</h1>
+<% @users.each do |user| %>
+  <% if user.image %>
+    <%= image_tag "/user_images/#{user.image}", class: 'relation_image' %>
+  <% else %>
+    <%= image_tag "aa.jpg", class: 'relation_image' %>
+  <% end %>
+  <%= link_to user.name, user_path(user.id) %>
+<% end %>
+  

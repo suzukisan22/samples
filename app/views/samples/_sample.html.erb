@@ -2,7 +2,7 @@
     <% if sample.user.image %>
       <%= image_tag "/user_images/#{sample.user.image}", class: 'feed_image' %>
     <% else %>
-      <%= image_tag "aa.jpg", class: 'feed_image' %>
+      <%= image_tag "no_image.png", class: 'feed_image' %>
     <% end %>
     <span class="user"><%= link_to sample.user.name, sample.user %></span>
     <span class="content"><%= sample.content %></span>
@@ -11,4 +11,13 @@
         <%= link_to "delete", sample, method: :delete, data: {confirm: "you sure?"} %>
       <% end %>
     </span>
+    <span class="like-link">
+      <% if current_user.likes.find_by(sample_id: sample.id) %>
+        <%= link_to 'いいね!を取り消す', unlike_path(sample.id), method: :delete %>
+      <% else %>
+        <%= link_to 'いいね', like_path(sample.id), method: :post %>
+      <% end %>
+    </span>
+    <%= link_to sample.like_users.count, like_user_sample_path(sample.id), class: 'ml25', id: 'like-count' %>
+
 </li>

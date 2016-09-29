@@ -1,8 +1,17 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :followings, :followers]
+  before_action :set_user, only: [:show, :edit, :update, :followings, :followers, :like_sample]
+  
+  def like_sample
+    @samples = @user.like_samples
+    @title = "いいね!一覧"
+    @cnt = @user.likes.count
+    render 'show'
+  end
   
   def show
     @samples = @user.samples
+    @title = "投稿一覧"
+    @cnt = @user.samples.count
   end
   
   def followings

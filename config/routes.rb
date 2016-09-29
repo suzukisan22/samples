@@ -5,13 +5,24 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  
+  post 'like/:sample_id' => 'likes#like', as: 'like'
+  delete 'unlike/:sample_id' => 'likes#unlike', as: 'unlike'
 
   get 'followings/:id' => 'users#followings', as: 'followings'
   get 'followers/:id' => 'users#followers', as: 'followers'
   
-  resources :users
+  resources :users do
+    member do
+      get :like_sample
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :samples
+  resources :samples do
+    member do
+      get :like_user
+    end
+  end
   resources :relationships, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

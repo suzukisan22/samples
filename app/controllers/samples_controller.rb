@@ -1,5 +1,10 @@
 class SamplesController < ApplicationController
-    before_action :logged_in_user, only: [:create, :destroy]
+    before_action :logged_in_user, only: [:create, :destroy, :liking_user]
+    
+    def like_user
+      @sample = Sample.find(params[:id])
+      @users = @sample.like_users
+    end
     
     def create
       @sample = current_user.samples.build(samples_params)

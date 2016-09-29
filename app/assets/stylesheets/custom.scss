@@ -110,10 +110,13 @@ aside {
             display: block; 
             padding: 5px 0; 
         } 
-    } 
+    }
+    .like {
+        display: block;
+        margin-left: 60px; 
+    }
     .timestamp { 
-        color: $gray-light; 
-        display: block; 
+        color: $gray-light;
         margin-left: 60px; 
     } 
     .gravatar { 
@@ -145,4 +148,8 @@ span.picture {
 
 .relation_image {
     width: 100px;
+}
+
+.ml25 {
+    margin-left: 25px;
 }

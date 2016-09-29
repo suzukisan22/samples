@@ -5,10 +5,12 @@
           <% if @user.image %>
             <%= image_tag "/user_images/#{@user.image}", class: 'profile_image' %>
           <% else %>
-            <%= image_tag "aa.jpg", class: 'profile_image' %>
+            <%= image_tag "no_image.png", class: 'profile_image' %>
           <% end %>
           <%= @user.name %>
         </h1>
+        <p><%= @user.email %></p>
+        <p><%= link_to "#{@user.likes.count}件いいねしました。", like_sample_user_path(@user.id) %></p>
     </section>
     <div class="row">
       <div class="col-xs-6">
@@ -23,8 +25,8 @@
   </aside>
   <div class="col-md-8">
       <%= render 'follow_form' if logged_in? %>
-      <% if @user.samples.any? %>
-        <h3>Microposts (<%= @user.samples.count %>)</h3>
+      <% if @cnt != 0 %>
+        <h3><%= @title %>(<%= @cnt %>)</h3>
         <ol class="microposts">
           <%= render @samples %>
         </ol>
