@@ -1,6 +1,12 @@
 <% @users.each do |user| %>
   <div class="user_area">
-    <h1><%= gravatar_for user %></h1>
+    <div>
+      <% if user.image %>
+        <%= image_tag "/user_images/#{user.image}", class: 'relation_image' %>
+      <% else %>
+        <%= image_tag "aa.jpg", class: 'relation_image' %>
+      <% end %>
+    </div>
     <p><%= link_to user.name, user_path(user.id) %></p>
   </div>
 <% end %>

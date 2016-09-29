@@ -1,6 +1,6 @@
 <li id="micropost-<%= sample.id %>">
-    <% if @user.image %>
-      <%= image_tag "/user_images/#{@user.image}", class: 'feed_image' %>
+    <% if sample.user.image %>
+      <%= image_tag "/user_images/#{sample.user.image}", class: 'feed_image' %>
     <% else %>
       <%= image_tag "aa.jpg", class: 'feed_image' %>
     <% end %>
