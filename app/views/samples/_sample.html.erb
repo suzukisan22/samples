@@ -5,19 +5,30 @@
       <%= image_tag "no_image.png", class: 'feed_image' %>
     <% end %>
     <span class="user"><%= link_to sample.user.name, sample.user %></span>
-    <span class="content"><%= sample.content %></span>
-    <span class="timestamp"> Posted <%= time_ago_in_words(sample.created_at) %> ago. 
+    <span class="content"><%= sample.content %></span><br>
+
+    <span class="delete">
       <% if current_user == sample.user %>
-        <%= link_to "delete", sample, method: :delete, data: {confirm: "you sure?"} %>
+        <%= link_to sample, method: :delete, data: {confirm: "you sure?"} do %>
+          <%= fa_icon "trash-o", class: 'fa-lg' %>
+        <% end %>
+      <% else %>
+        <%= fa_icon "ban", class: 'fa-lg' %>
       <% end %>
     </span>
     <span class="like-link">
       <% if current_user.likes.find_by(sample_id: sample.id) %>
-        <%= link_to 'いいね!を取り消す', unlike_path(sample.id), method: :delete %>
+        <%= link_to unlike_path(sample.id), method: :delete do %>
+          <%= fa_icon "heart", class: 'fa-lg addHeartColor ml25' %>
+        <% end %>
       <% else %>
-        <%= link_to 'いいね', like_path(sample.id), method: :post %>
+        <%= link_to like_path(sample.id), method: :post do %>
+          <%= fa_icon "heart-o", class: 'fa-lg ml25' %>
+        <% end %>
       <% end %>
     </span>
-    <%= link_to sample.like_users.count, like_user_sample_path(sample.id), class: 'ml25', id: 'like-count' %>
-
+    <span class="pr25">
+      <%= link_to sample.like_users.count, like_user_sample_path(sample.id), class: 'ml5', id: 'like-count' %>
+    </span>
+    <span class="timestamp"> Posted <%= time_ago_in_words(sample.created_at) %> ago.</span>
 </li>

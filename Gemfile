@@ -56,3 +56,5 @@ end
 
 gem 'faker'
 
+gem "font-awesome-rails"
+

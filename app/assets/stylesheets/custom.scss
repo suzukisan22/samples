@@ -1,4 +1,6 @@
-@import "bootstrap-sprockets"; @import "bootstrap"; 
+@import "bootstrap-sprockets"; 
+@import "bootstrap"; 
+@import "font-awesome";
 /* universal */ 
 body { 
     padding-top: 60px;
@@ -115,10 +117,22 @@ aside {
         display: block;
         margin-left: 60px; 
     }
-    .timestamp { 
+    .like-link:hover {
+        text-decoration: none;
+    }
+    .timestamp {
         color: $gray-light;
-        margin-left: 60px; 
-    } 
+        padding-left: 15px; 
+    }
+    .delete {
+        margin-left: 60px;
+        padding: 0 25px;
+        border-right: 2px solid #eee;
+        border-left: 2px solid #eee;
+    }
+    .addHeartColor {
+        color: red;
+    }
     .gravatar { 
         float: left; 
         margin-right: 10px; 
@@ -148,6 +162,15 @@ span.picture {
 
 .relation_image {
     width: 100px;
+}
+
+.pr25 {
+    padding-right: 25px;
+    border-right: 2px solid #eee;
+}
+
+.ml5 {
+    margin-left: 5px;
 }
 
 .ml25 {
