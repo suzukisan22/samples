@@ -54,15 +54,20 @@ input {
     } 
 }
 
+.field textarea {
+    height: 100px;
+}
+
 /* sidebar */ 
 aside { 
     section.user_info { 
-        margin-top: 20px;
-        max-width: 300px;
+        margin: 20px auto 0;
+        max-width: 350px;
     }
     section .profile_image {
-        max-width: 300px;
+        max-width: 350px;
         width: 100%;
+        margin-bottom: 20px;
     }
     section { 
         padding: 10px 0; 
@@ -175,4 +180,15 @@ span.picture {
 
 .ml25 {
     margin-left: 25px;
+}
+
+#following {
+    border-left: 2px solid #eee;
+    border-right: 2px solid #eee;
+    padding: 0;
+}
+
+#follower, #favorite {
+    border-right: 2px solid #eee;
+    padding: 0;
 }

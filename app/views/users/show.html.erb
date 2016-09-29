@@ -10,16 +10,27 @@
           <%= @user.name %>
         </h1>
         <p><%= @user.email %></p>
-        <p><%= link_to "#{@user.likes.count}件いいねしました。", like_sample_user_path(@user.id) %></p>
+        <p></p>
     </section>
     <div class="row">
-      <div class="col-xs-6">
-        <%= link_to 'Following', followings_path(@user.id) %>
-        <%= @user.following_users.count %>
+      <div id="following" class="col-xs-4 text-center">
+        <%= link_to followings_path(@user.id) do %>
+           Following<br>
+           <%= @user.following_users.count %>
+        <% end %>
+        <br>
       </div>
-      <div class="col-xs-6">
-        <%= link_to 'Followers', followers_path(@user.id) %>
-        <%= @user.follower_users.count %>
+      <div id="follower" class="col-xs-4 text-center">
+        <%= link_to followers_path(@user.id) do %>
+          Followers<br>
+          <%= @user.follower_users.count %>
+        <% end %>
+      </div>
+      <div id="favorite" class="col-xs-4 text-center">
+        <%= link_to like_sample_user_path(@user.id) do %>
+          <%= fa_icon "heart", class: 'fa-lg addHeartColor' %><br>
+          <span><%= @user.likes.count %></span>
+        <% end %>
       </div>
     </div>
   </aside>

@@ -1,7 +1,7 @@
 <%= form_for(@sample) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new Tweets..." %>
+    <%= f.text_area :content, placeholder: "いまどうしてる？", class: 'form-control' %>
   </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
  <% end %>
