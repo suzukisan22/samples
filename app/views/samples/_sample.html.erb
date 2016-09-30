@@ -1,12 +1,7 @@
 <li id="micropost-<%= sample.id %>">
-    <% if sample.user.image %>
-      <%= image_tag "/user_images/#{sample.user.image}", class: 'feed_image' %>
-    <% else %>
-      <%= image_tag "no_image.png", class: 'feed_image' %>
-    <% end %>
+    <%= image_for(sample.user, "feed_image") %>
     <span class="user"><%= link_to sample.user.name, sample.user %></span>
     <span class="content"><%= sample.content %></span><br>
-
     <span class="delete">
       <% if current_user == sample.user %>
         <%= link_to sample, method: :delete, data: {confirm: "you sure?"} do %>

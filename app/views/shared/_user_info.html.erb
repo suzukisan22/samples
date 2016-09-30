@@ -3,6 +3,6 @@
 <% else %>
   <%= image_tag 'no_image.png', class: 'profile_image' %>
 <% end %>
-<h1><%= current_user.name %></h1>
+<h1><strong><%= current_user.name %></strong></h1>
 <span><%= link_to "view my profile", current_user %></span>
 <span><%= pluralize(current_user.samples.count, "micropost") %></span>

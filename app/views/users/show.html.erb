@@ -2,17 +2,14 @@
   <aside class="col-md-4">
     <section class="user_info">
         <h1>
-          <% if @user.image %>
-            <%= image_tag "/user_images/#{@user.image}", class: 'profile_image' %>
-          <% else %>
-            <%= image_tag "no_image.png", class: 'profile_image' %>
-          <% end %>
-          <%= @user.name %>
+          <%= image_for(@user, "profile_image") %>
+          <strong><%= @user.name %></strong>
         </h1>
         <p><%= @user.email %></p>
+        <p><%= @user.content %></p>
         <p></p>
     </section>
-    <div class="row">
+    <section class="row user_info">
       <div id="following" class="col-xs-4 text-center">
         <%= link_to followings_path(@user.id) do %>
            Following<br>
@@ -32,7 +29,7 @@
           <span><%= @user.likes.count %></span>
         <% end %>
       </div>
-    </div>
+    </section>
   </aside>
   <div class="col-md-8">
       <%= render 'follow_form' if logged_in? %>

@@ -1,12 +1,21 @@
-<% @users.each do |user| %>
-  <div class="user_area">
-    <div>
-      <% if user.image %>
-        <%= image_tag "/user_images/#{user.image}", class: 'relation_image' %>
-      <% else %>
-        <%= image_tag "aa.jpg", class: 'relation_image' %>
-      <% end %>
+<div class="row">
+  <% @users.each do |user| %>
+    <div class="col-sm-4">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="user_area">
+            <div>
+              <%= image_for(user, "relation_image") %>
+            </div>
+            <p><%= link_to user.name, user_path(user.id) %></p>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <%= user.content %>
+        </div>
+      </div>
+      
+      
     </div>
-    <p><%= link_to user.name, user_path(user.id) %></p>
-  </div>
-<% end %>
+  <% end %>
+</div>
