@@ -8,7 +8,12 @@ class SamplesController < ApplicationController
   def result
     prm = Sample.new(samples_params)
     @samples = Sample.where("content like '%" + prm[:content] + "%'")
-    render :template => "samples/result_all"
+    if @sample
+      render :template => "samples/result_all"
+    else
+      flash[:info] = "お探しのツイートはありません。"
+      redirect_to search_samples_path
+    end
   end
     
   def like_user

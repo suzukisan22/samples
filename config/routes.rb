@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :samples do
     member do
       get :like_user
+      post :result
+      get :search
     end
     collection do
       post :result
