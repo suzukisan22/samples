@@ -130,7 +130,7 @@ aside {
     }
     .timestamp {
         color: $gray-light;
-        padding-left: 15px; 
+        padding-left: 15px;
     }
     .delete {
         margin-left: 60px;
@@ -168,6 +168,7 @@ span.picture {
     width: 50px;
     border: 2px solid #eee;
     border-radius: 5px;
+    height: 35px;
 }
 
 .relation_image {
@@ -200,3 +201,25 @@ span.picture {
     border-right: 2px solid #eee;
     padding: 0;
 }
+
+.header-ul {
+    width: 85%;
+    padding-top: 15px;
+}
+
+.header-ul li{
+    text-align: center;
+}
+
+.header-ul li a{
+    min-width: 50px;
+}
+
+#content {
+    margin: 0 15px;
+}
+
+#search_btn {
+    padding: 0;
+}
+

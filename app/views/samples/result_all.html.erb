@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+  <h1>ツイート一覧</h1>
+  <ol>
+    <% @samples.each do |sample| %>
+      <li id="micropost-<%= sample.id %>">
+        <%= image_for(sample.user, "feed_image") %>
+          <span class="user"><%= link_to sample.user.name, sample.user %></span><br>
+          <span class="content"><%= sample.content %></span><br>
+          <span class="delete">
+            <% if current_user == sample.user %>
+              <%= link_to sample, method: :delete, data: {confirm: "you sure?"} do %>
+                <%= fa_icon "trash-o", class: 'fa-lg' %>
+              <% end %>
+            <% else %>
+              <%= fa_icon "ban", class: 'fa-lg' %>
+            <% end %>
+          </span>
+          <span class="like-link">
+            <% if current_user.likes.find_by(sample_id: sample.id) %>
+              <%= link_to unlike_path(sample.id), method: :delete do %>
+                <%= fa_icon "heart", class: 'fa-lg addHeartColor ml25' %>
+              <% end %>
+            <% else %>
+              <%= link_to like_path(sample.id), method: :post do %>
+                <%= fa_icon "heart-o", class: 'fa-lg ml25' %>
+              <% end %>
+            <% end %>
+          </span>
+          <span class="pr25">
+            <%= link_to sample.like_users.count, like_user_sample_path(sample.id), class: 'ml5', id: 'like-count' %>
+          </span>
+          <span class="timestamp"> Posted <%= time_ago_in_words(sample.created_at) %> ago.</span>
+        <% end %>
+      </li>
+    </ol>
+  </div>
+</div>

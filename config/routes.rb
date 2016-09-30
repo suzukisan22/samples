@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     member do
       get :like_user
     end
+    collection do
+      post :result
+      get :search
+    end
   end
   resources :relationships, only: [:create, :destroy]
 
